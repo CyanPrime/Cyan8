@@ -1,0 +1,5 @@
+{
+	"oldBtns" : ["52","87","81"],
+	"newBtns" : ["37","39","90"],
+	"desc" 	  : "Move left: Left arrow.<br />Move right: Right arrow.<br />Z: Shoot."
+}

@@ -1,0 +1,7 @@
+{
+	"oldBtnsP1" : ["49","52"],
+	"newBtnsP1" : ["38","40"],
+	"oldBtnsP2" : ["70","90"],
+	"newBtnsP2" : ["38","40"],
+	"desc" 	  : "Move up: Up arrow.<br />Move down: Down arrow."
+}
