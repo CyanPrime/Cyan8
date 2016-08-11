@@ -30,10 +30,10 @@ app.get('/game.html', function(req, res){
 
 io.on('connection', function (socket) {
 
-	socket.on('chat message', function(msg){
-		console.log('chat message: ' + msg);
-		socket.broadcast.emit('chat message', msg);
-		socket.emit('chat message', msg);
+	socket.on('chat', function(msg){
+		console.log('chat: ' + msg);
+		socket.broadcast.emit('chat', msg);
+		socket.emit('chat', msg);
 	});
 	
 	socket.on('be_player', function(msg){
@@ -151,22 +151,20 @@ var mainLoop = function(){
 	if(hasGame){
 		if(!chip8.error){
 			chip8.cycle();
-			/*
-			if(chip8.playSound){
-				playSnd(1000);
-				sndMinLen = 3;
-			}
-			else{
-				if(sndMinLen <= 0) stopSnd()
-				else sndMinLen--;
-			}*/
-			
+		}
+	}
+}
+
+var sendScreen = function(){
+	if(hasGame){
+		if(!chip8.error){
 			if(chip8.draw)
 				drawGraphics();
 		}
 	}
 }
 
-var interval = setInterval(mainLoop, ((1000/60)/30));
+var updateInterval = setInterval(mainLoop, ((1000/60)/30));
+var screenInterval = setInterval(sendScreen, 20);
 
 //clearInterval(interval);
